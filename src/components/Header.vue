@@ -1,6 +1,18 @@
 <template>
 <nav>
     <ul>
+        <li v-if='wind === "uninlogged"'>
+            <router-link to="/login">Log In</router-link>
+        </li>
+
+        <li v-if='wind != "uninlogged"'>
+            <a href="/">Log out</a>
+        </li>
+
+        <li v-if='wind != "uninlogged"'>
+        <router-link to="/newreport">New Report</router-link>
+        </li>
+
         <li><router-link to="/">Me</router-link></li>
         <li><router-link to="/report/kmom01">kmom01</router-link></li>
         <li><router-link to="/report/kmom02">kmom02</router-link></li>
@@ -12,8 +24,15 @@
 
 <script>
 export default {
-  name: 'Me',
-  props: {  }
+    name: 'Header',
+    props: {
+
+    },
+    data() {
+        return {
+            wind : window.document.JWT_TOKEN
+        }
+    },
 }
 </script>
 

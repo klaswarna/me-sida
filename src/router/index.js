@@ -2,6 +2,8 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Me from '@/components/Me'
 import Report from '@/components/Report'
+import Login from '@/components/Login'
+import NewReport from '@/components/NewReport'
 
 Vue.use(Router)
 
@@ -16,6 +18,16 @@ export default new Router({
         path: '/report/:kmom',
         name: 'Redovisning',
         component: Report
+    },
+    {
+        path: '/login',
+        name: 'Login',
+        component: Login
+    },
+    {
+        path: '/newreport',
+        name: 'NewReport',
+        component: NewReport
     }
   ]
 })
