@@ -6,7 +6,7 @@ Vue.config.productionTip = false;
 
 
 //Vue.JWT_TOKEN= Vue.prototype.JWT_TOKEN = 'Ingen token ännu';
-window.document.JWT_TOKEN = "uninlogged"
+//window.document.JWT_TOKEN = "uninlogged"
 
 new Vue({
     router,

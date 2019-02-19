@@ -40,6 +40,7 @@ export default {
             title: "",
             content: "",
             resultat: "",
+            token: window.token
         }
     },
     methods: {
@@ -51,7 +52,8 @@ export default {
                 method: 'POST',
                 headers: new Headers({
                     'Accept': 'application/json',
-                    'x-access-token': window.document.JWT_TOKEN,
+                    //'x-access-token': window.document.JWT_TOKEN,
+                    'x-access-token': that.token,
                     'Content-Type': 'application/json'
                 }),
                 body: JSON.stringify({

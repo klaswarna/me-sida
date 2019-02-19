@@ -1,9 +1,9 @@
 <template>
 <main>
-    <Header :key="wind" />
+    <Header :key="token" />
     <h1>Log In</h1>
 
-<div v-if='wind === "uninlogged"'>
+<div v-if='!token'>
 
 <p>
 <input v-model="email" placeholder="edit email">
@@ -24,8 +24,15 @@ Or if you are a new user:
 </div>
 </div>
 
-<div v-if='wind != "uninlogged"'>
-<h2>Du är inloggad</h2>
+<div v-if='msg && !token'>
+
+<h2 class="red">{{msg}}</h2>
+
+</div>
+
+
+<div v-if='token'>
+<h2 class="green">{{msg}}</h2>
 
 </div>
 
@@ -51,8 +58,8 @@ export default {
             password: "",
             email: "",
             resultat: "",
-            //wind: this.wind
-            wind: window.document.JWT_TOKEN
+            token: window.token,
+            msg: this.msg
         }
     },
     methods: {
@@ -62,7 +69,6 @@ export default {
             fetch("https://me-app.kwramverk.me/login", {
                 method: 'POST',
                 headers: new Headers({
-                    //'x-access-token': that.JWT_TOKEN,
                     'Content-Type': 'application/json'
                 }),
                 body: JSON.stringify({
@@ -72,10 +78,10 @@ export default {
             }).then(function(response) {
                 return response.json();
             }).then(function(data) {
-                //console.log(data);
-                that.resultat = data;
-                window.document.JWT_TOKEN = data;
-                that.wind = data; //måste vara med för att kommunicera med header
+                that.token = data.token,
+                window.token = data.token,
+                that.msg = data.msg,
+                window.user = data.user
             });
         },
         signup(email, password) {
@@ -120,4 +126,11 @@ a {
     text-align: left;
 }
 
+.red {
+    color: red;
+}
+
+.green {
+    color: green;
+}
 </style>

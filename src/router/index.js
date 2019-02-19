@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+//import VueNativeSock from 'vue-native-websocket'
 import Me from '@/components/Me'
 import Report from '@/components/Report'
 import Login from '@/components/Login'
 import NewReport from '@/components/NewReport'
+import Chat from '@/components/Chat'
 
 Vue.use(Router)
 
@@ -28,6 +30,11 @@ export default new Router({
         path: '/newreport',
         name: 'NewReport',
         component: NewReport
+    },
+    {
+        path: '/chat',
+        name: 'Chat',
+        component: Chat
     }
   ]
 })
