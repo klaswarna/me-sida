@@ -6,6 +6,7 @@ import Report from '@/components/Report'
 import Login from '@/components/Login'
 import NewReport from '@/components/NewReport'
 import Chat from '@/components/Chat'
+import OldPosts from '@/components/OldPosts'
 
 Vue.use(Router)
 
@@ -35,6 +36,12 @@ export default new Router({
         path: '/chat',
         name: 'Chat',
         component: Chat
+    },
+    {
+        path: '/oldposts',
+        name: 'OldPosts',
+        component: OldPosts
     }
+
   ]
 })

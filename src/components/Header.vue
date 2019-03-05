@@ -25,6 +25,7 @@
         <li><router-link to="/report/kmom05">kmom05</router-link></li>
         <li><router-link to="/report/kmom06">kmom06</router-link></li>
         <li><router-link to="/chat">Chat</router-link></li>
+        <li><router-link to="/oldposts">OldPosts</router-link></li>
     </ul>
     <router-view :key="$route.fullPath"></router-view>
 </nav>
